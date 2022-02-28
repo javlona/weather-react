@@ -4,23 +4,23 @@ const Weather = createContext();
 
 function WeatherContext(props) {
 
-    const [location, setLocation] = useState()
-
-    const changeHandler = (e) => {
-        const {value} = e.target
-
-    } 
+    const [location, setLocation] = useState({})
 
     const submitHandler = (e) => {
         e.preventDefault();
         
     }
 
+    const addLocation = () => {
+        return setLocation({...location})
+    }
 
     return (
         <Weather.Provider
             value={
-                location
+                location,
+                addLocation, 
+                submitHandler
             }
         >
             { props.children }

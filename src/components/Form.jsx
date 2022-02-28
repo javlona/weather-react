@@ -1,16 +1,21 @@
-import React,{useState} from 'react'
+import React,{ useState, useContext } from 'react'
+import { Weather } from '../Context/Context.Weather'
+
 
 function Form() {
-   
+    const { addLocation, submitHandler } = useContext ( Weather )
+    const [location, setLocation] = useState()
 
+    console.log(location)
+    
     return (
     <form onSubmit={submitHandler}>
         <input 
             className="form__input"
             type="text"
             placeholder="Enter location"
-            value={ value }
-            onChange={ changeHandler }
+            defaultValue={ location }
+            onChange={ e => setLocation( e.target.value )}
         />
     </form>
   )
