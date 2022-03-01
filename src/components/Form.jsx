@@ -3,8 +3,7 @@ import { Weather } from '../Context/Context.Weather'
 
 
 function Form() {
-    const { addLocation, submitHandler } = useContext ( Weather )
-    const [location, setLocation] = useState()
+    const { location, setLocation, submitHandler } = useContext ( Weather )
 
     console.log(location)
     
@@ -15,7 +14,7 @@ function Form() {
             type="text"
             placeholder="Enter location"
             defaultValue={ location }
-            onChange={ e => setLocation( e.target.value )}
+            onChange={ (e) => setLocation( e.target.value )}
         />
     </form>
   )
