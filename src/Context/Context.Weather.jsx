@@ -1,14 +1,25 @@
 import React, { createContext, useState, useEffect } from "react";
+import Client from "../Utils/axios"
 
 const Weather = createContext();
 
 function WeatherContext(props) {
 
     const [location, setLocation] = useState("")
+    
 
-    const submitHandler = (e) => {
+    const submitHandler = async(e) => {
         e.preventDefault();
         
+        try {
+            const { data } = await Client.get('/search', {params: {query: location}})
+            
+            const res = await Client.get(`/${data[0].woeid}`)
+
+            console.log('weather', res);
+        } catch(error){
+            console.log(error)
+        }
     }
 
     return (
