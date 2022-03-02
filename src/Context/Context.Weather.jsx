@@ -12,9 +12,9 @@ function WeatherContext(props) {
         e.preventDefault();
         
         try {
-            const { data } = await Client.get('/search', {params: {query: location}})
+            //const { data } = await Client.get('/search', {params: {query: location}})
             
-            const res = await Client.get(`/${data[0].woeid}`)
+            const res = await Client.get({params: location})
 
             console.log('weather', res);
         } catch(error){
