@@ -3,7 +3,7 @@ import { Weather } from '../Context/Context.Weather'
 import Container from './style'
 
 function Form() {
-    const { location, setLocation, submitHandler } = useContext ( Weather )
+    const { location, setLocation, submitHandler } = useContext( Weather )
     
     return (
         <Container>
